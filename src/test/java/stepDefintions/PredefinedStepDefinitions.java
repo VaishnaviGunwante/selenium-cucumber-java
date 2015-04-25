@@ -378,12 +378,12 @@ public class PredefinedStepDefinitions implements BaseTest
 	}
 
 	// steps to select option by text from radio button group
-	@Then("^I select \"(.*?)\" option by value from radio button group having (.+) \"(.*?)\"$")
-	public void select_option_from_radio_btn_group(String option, String type, String accessName) throws Exception
+	@Then("^I select \"(.*?)\" option by (.+) from radio button group having (.+) \"(.*?)\"$")
+	public void select_option_from_radio_btn_group(String option,String by, String type, String accessName) throws Exception
 	{
 		miscmethodObj.validateLocator(type);
 		//miscmethodObj.validateOptionBy(optionBy);
-		inputObj.selectOptionFromRadioButtonGroup(type, option, accessName);
+		inputObj.selectOptionFromRadioButtonGroup(type, option, by, accessName);
 	}
 	
 	//Click element Steps 
