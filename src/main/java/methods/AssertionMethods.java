@@ -293,24 +293,6 @@ public class AssertionMethods extends SelectElementByType implements BaseTest
 			throw new TestCaseFailed("Text on alert pop up not matched");
 	}
 	
-	  /*radio_button_group = WAIT.until{ $driver.find_elements(:"#{access_type}" => "#{access_name}") }
-
-	  getter = ->(rb, by) { by == 'value' ? rb.attribute('value') : rb.text }
-
-	  ele = radio_button_group.find { |rb| getter.call(rb, by) == option }
-
-	  if !ele.selected? && should_be_selected
-	    raise TestCaseFailed, 'Radio button is not selected'
-	  elsif ele.selected? && !should_be_selected
-	    raise TestCaseFailed, 'Radio button is selected'
-	  end
-	end*/
-	
-	/*method to get javascript pop-up alert text
-	def get_alert_text
-	  $driver.switch_to.alert.text
-	end*/
-	
 	/** Method to verify if the particular option is Selected from Dropdown
 	 * @param accessType : String : Locator type (id, name, class, xpath, css)
 	 * @param by : String : Select element from dropdown by text or value
@@ -325,7 +307,7 @@ public class AssertionMethods extends SelectElementByType implements BaseTest
 		WebElement dropdown = wait.until(ExpectedConditions.presenceOfElementLocated(getelementbytype(accessType, accessName)));
 		selectList = new Select(dropdown);
 		
-		String actualValue=null;
+		String actualValue="";
 		if(by.equals("text"))
 			actualValue = selectList.getFirstSelectedOption().getText();
 		else
