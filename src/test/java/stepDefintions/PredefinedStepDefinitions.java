@@ -70,30 +70,11 @@ public class PredefinedStepDefinitions implements BaseTest
 		
 	// Switch between frame 
 		
-		/*@Then("^I switch to frame having name or id \"(.*?)\"$")
-		public void switch_frame_by_nameorid(String nameorid) {
-		    // Write code here that turns the phrase above into concrete actions
-			navigationObj.switchFrameByNameorid(nameorid);
-		}
-		// Step to switch to frame by index
-		@Then("^I switch to frame having index \"(.*?)\" $") 
-		public void switch_frame_by_index(int index)
-		{
-			navigationObj.switchFrameByIndex(index);
-		}
-		  
-		// Step to switch to frame by name or id
-		@Then("^I switch to frame having name or id \"(.*?)\"$") 
-		public void switch_frame_by_nameorid(String nameorid)
-		{
-			navigationObj.switchFrameByNameorid(nameorid);
-		}*/
-		
 		// Step to switch to frame by web element
 		@Then("^I switch to frame having (.+) \"(.*?)\"$") 
 		public void switch_frame_by_element(String method, String value)
 		{
-			navigationObj.switchFrameByMethods(method, value);
+			navigationObj.switchFrame(method, value);
 		}
 			
 		// step to switch to main content
@@ -194,10 +175,10 @@ public class PredefinedStepDefinitions implements BaseTest
 	 * @param present : 
 	 * @param title :
 	 */
-	@Then("^I should\\s*((?:not)?)\\s+see page title as \"(.*?)\"$")
+	@Then("^I should\\s*((?:not)?)\\s+see page title as \"(.+)\"$")
 	public void check_title(String present,String title) throws TestCaseFailed
 	{
-		System.out.println("Present :" + present.isEmpty());
+		//System.out.println("Present :" + present.isEmpty());
 		assertionObj.checkTitle(title,present.isEmpty());
 	}
 	
@@ -205,7 +186,7 @@ public class PredefinedStepDefinitions implements BaseTest
 	@Then("^I should\\s*((?:not)?)\\s+see page title having partial text as \"(.*?)\"$")
 	public void check_partial_text(String present, String partialTextTitle) throws TestCaseFailed
 	{
-		System.out.println("Present :" + present.isEmpty());
+		//System.out.println("Present :" + present.isEmpty());
 		assertionObj.checkPartialTitle(partialTextTitle, present.isEmpty());
 	}
 		
