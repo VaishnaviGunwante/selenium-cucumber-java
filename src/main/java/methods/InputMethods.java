@@ -42,7 +42,6 @@ public class InputMethods extends SelectElementByType implements BaseTest
 	 */
 	public void selectelementfromdropdownbytype (Select select_list, String bytype, String option)
 	{
-		System.out.println("**"+bytype+"++"+option);
 		if(bytype.equals("selectByIndex"))
 		{
 			int index = Integer.parseInt(option);
@@ -134,34 +133,23 @@ public class InputMethods extends SelectElementByType implements BaseTest
 	@param by : String : Name of by type
 	@param option : String : Option to select
 	@param accessName : String : Locator value
+	 * @param accessName2 
 	*/
-	public void selectOptionFromRadioButtonGroup(String accessType, String option, String accessName)
+	public void selectOptionFromRadioButtonGroup(String accessType, String option, String by, String accessName)
 	{
 		List<WebElement> radioButtonGroup = driver.findElements(getelementbytype(accessType, accessName));
-		String getoption = null;
-		
-		/*System.out.println("cnt : "+radioButtonGroup.size());
-		for(int i =0; i < radioButtonGroup.size() ; i++ ){
-			System.out.println("In loop i: "+i);
-			System.out.println(radioButtonGroup.get(i).isSelected());
-		}*/
-		
-		for(WebElement temp : radioButtonGroup)
+		for(WebElement rb : radioButtonGroup)
 		{
-			System.out.println("+++"+temp.getAttribute("value"));
-			getoption = temp.getAttribute("value");
-			
-			System.out.println("Element : "+getoption);
-			if(getoption.equals(option) && !temp.isSelected())
-				temp.click();
+			if(by.equals("value"))
+			{
+				if(rb.getAttribute("value").equals(option) && !rb.isSelected())
+					rb.click();
+			}
+			else if(by.equals("text"))
+			{
+				if(rb.getText().equals(option) && !rb.isSelected())
+					rb.click();
+			}
 		}
-		
 	}
-	//	List<WebElement> radioButtonGroup = CucumberRunner.driver.findElement(eletype.getelementbytype(access_type, access_name));
-		
-
-	/*  getter = ->(rb, by) { by == 'value' ? rb.attribute('value') : rb.text }
-	  ele = radio_button_group.find { |rb| getter.call(rb, by) == option }
-	  ele.click unless ele.selected?
-	}*/
 }
