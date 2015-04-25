@@ -477,7 +477,7 @@ public class PredefinedStepDefinitions implements BaseTest
 	}
   
 	// wait for specific element to enable for specific period of time
-	@Then("^I wait (\\d+) seconds for element having (.+) \"(.*?)\" to be clickable$")
+	@Then("^I wait (\\d+) seconds for element having (.+) \"(.*?)\" to be enabled$")
 	public void wait_for_ele_to_click(String duration, String type, String accessName) throws Exception
 	{
 		miscmethodObj.validateLocator(type);
