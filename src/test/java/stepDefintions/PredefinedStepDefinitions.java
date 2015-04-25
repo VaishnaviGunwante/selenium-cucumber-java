@@ -283,14 +283,13 @@ public class PredefinedStepDefinitions implements BaseTest
 		assertionObj.checkAlertText(actualValue);
 	}
 		
-	// step to assert dropdown list
+	// step to select dropdown list
 	@Then("^option \"(.*?)\" by (.+) from dropdown having (.+) \"(.*?)\" should be (selected|unselected)$")
 	public void is_option_from_dropdown_selected(String option,String by,String type,String accessName,String state) throws Exception
 	{
 		miscmethodObj.validateLocator(type);
 		boolean flag = state.equals("selected");
 		assertionObj.isOptionFromDropdownSelected(type,by,option,accessName,flag);
-		//ruby : is_option_from_dropdown_selected(type, by, option, access_name, state)
 	}
 	
 	//Input steps
@@ -311,21 +310,55 @@ public class PredefinedStepDefinitions implements BaseTest
 		inputObj.clearText(type, accessName);
 	}
 
-	// select option by text/value from dropdown/multiselect
-	@Then("^I select \"(.*?)\" option by (.+) from\\s*((?:multiselect)?)\\sdropdown having (.+) \"(.*?)\"$")
-	public void select_option_from_dropdown(String option,String optionBy, String present,String type,String accessName) throws Exception
+	// select option by text/value from dropdown
+	@Then("^I select \"(.*?)\" option by (.+) from dropdown having (.+) \"(.*?)\"$")
+	public void select_option_from_dropdown(String option,String optionBy,String type,String accessName) throws Exception
 	{
 		miscmethodObj.validateLocator(type);
 		miscmethodObj.validateOptionBy(optionBy);
 		inputObj.selectOptionFromDropdown(type,optionBy, option, accessName);
 	}
-
-	// select option by index from dropdown/multiselect
-	@Then("^I select (\\d+) option by index from\\s*((?:multiselect)?)\\sdropdown having (.+) \"(.*?)\"$")
-	public void select_option_from_dropdown(String option, String present, String type, String accessName) throws Exception
+	
+	// select option by index from dropdown
+	@Then("^I select (\\d+) option by index from dropdown having (.+) \"(.*?)\"$")
+	public void select_option_from_dropdown_by_index(String option, String type, String accessName) throws Exception
 	{
 		miscmethodObj.validateLocator(type);
 		inputObj.selectOptionFromDropdown(type,"selectByIndex", option, accessName);
+	}
+		
+	// select option by text/value from multiselect
+	@Then("^I select \"(.*?)\" option by (.+) from multiselect dropdown having (.+) \"(.*?)\"$")
+	public void select_option_from_multiselect_dropdown(String option,String optionBy, String type,String accessName) throws Exception
+	{
+		miscmethodObj.validateLocator(type);
+		miscmethodObj.validateOptionBy(optionBy);
+		inputObj.selectOptionFromDropdown(type,optionBy, option, accessName);
+	}
+	
+	// select option by index from multiselect
+	@Then("^I select (\\d+) option by index from multiselect dropdown having (.+) \"(.*?)\"$")
+	public void select_option_from_multiselect_dropdown_by_index(String option, String type, String accessName) throws Exception
+	{
+		miscmethodObj.validateLocator(type);
+		inputObj.selectOptionFromDropdown(type,"selectByIndex", option, accessName);
+	}
+	
+	// deselect option by text/value from multiselect
+	@Then("^I deselect \"(.*?)\" option by (.+) from multiselect dropdown having (.+) \"(.*?)\"$")
+	public void deselect_option_from_multiselect_dropdown(String option,String optionBy, String type,String accessName) throws Exception
+	{
+		miscmethodObj.validateLocator(type);
+		miscmethodObj.validateOptionBy(optionBy);
+		inputObj.deselectOptionFromDropdown(type, optionBy, option, accessName);
+	}
+		
+	// deselect option by index from multiselect
+	@Then("^I deselect (\\d+) option by index from multiselect dropdown having (.+) \"(.*?)\"$")
+	public void deselect_option_from_multiselect_dropdown_by_index(String option, String type, String accessName) throws Exception
+	{
+		miscmethodObj.validateLocator(type);
+		inputObj.deselectOptionFromDropdown(type, "selectByIndex", option, accessName);
 	}
 
 	// step to select option from mutliselect dropdown list
@@ -338,7 +371,7 @@ public class PredefinedStepDefinitions implements BaseTest
 	}*/
 
 	// step to unselect option from mutliselect dropdown list
-	@Then("^I unselect all options from multiselect dropdown having (.+) \"(.*?)\"$")
+	@Then("^I deselect all options from multiselect dropdown having (.+) \"(.*?)\"$")
 	public void unselect_all_option_from_multiselect_dropdown(String type, String accessName) throws Exception
 	{
 		miscmethodObj.validateLocator(type);
