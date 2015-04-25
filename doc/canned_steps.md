@@ -244,7 +244,7 @@ To assert that radio button not selected use any of the following steps :
 	Then radio button having xpath "(.*?)" should be unselected
 	Then radio button having css "(.*?)" should be unselected
 
-To assert that radio button group selected by text use any of the following steps : By which ???
+To assert that radio button group selected by text use any of the following steps :
 
 	Then option "(.*?)" by text from radio button group having id "(.*?)" should be selected
 	Then option "(.*?)" by text from radio button group having name "(.*?)" should be selected
@@ -252,7 +252,7 @@ To assert that radio button group selected by text use any of the following step
 	Then option "(.*?)" by text from radio button group having xpath "(.*?)" should be selected
 	Then option "(.*?)" by text from radio button group having css "(.*?)" should be selected
 	
-To assert that radio button group selected by value use any of the following steps : Not Implemented
+To assert that radio button group selected by value use any of the following steps :
 
 	Then option "(.*?)" by value from radio button group having id "(.*?)" should be selected
 	Then option "(.*?)" by value from radio button group having name "(.*?)" should be selected
@@ -260,7 +260,7 @@ To assert that radio button group selected by value use any of the following ste
 	Then option "(.*?)" by value from radio button group having xpath "(.*?)" should be selected
 	Then option "(.*?)" by value from radio button group having css "(.*?)" should be selected
 
-To assert that radio button group not selected by text use any of the following steps : Not Implemented
+To assert that radio button group not selected by text use any of the following steps :
 
 	Then option "(.*?)" by text from radio button group having id "(.*?)" should be unselected
 	Then option "(.*?)" by text from radio button group having name "(.*?)" should be unselected
